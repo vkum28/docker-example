@@ -1,0 +1,15 @@
+version: '3'
+services:
+  tensorflow:
+    container_name: tensorflow_host
+    image: tensor-host
+    build:
+      context: tensorflow
+    ports:
+      - "8888:8888"
+    volumes:
+      - $PWD/tensor_home:/var/tensor_home
+    networks:
+      - net
+networks:
+  net:
